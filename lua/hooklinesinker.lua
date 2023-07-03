@@ -8,6 +8,8 @@ function M.save_position()
   vim.api.nvim_set_var('hooklinesinker_position', position)
   vim.api.nvim_set_var('hooklinesinker_line', line)
   vim.api.nvim_set_var('hooklinesinker_file', file)
+
+  print("Current position hooked")
 end
 
 function M.return_position()
