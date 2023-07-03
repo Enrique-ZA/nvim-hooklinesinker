@@ -19,8 +19,13 @@ function M.return_position()
     return
   end
 
-  vim.api.nvim_command('edit ' .. file)
-  vim.api.nvim_win_set_cursor(0, position)
+  local current_file = vim.api.nvim_buf_get_name(0)
+  if file == current_file then
+    vim.api.nvim_win_set_cursor(0, position)
+  else
+    vim.api.nvim_command('edit ' .. file)
+    vim.api.nvim_win_set_cursor(0, position)
+  end
 end
 
 return M
